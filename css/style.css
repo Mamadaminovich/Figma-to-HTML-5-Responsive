@@ -33,14 +33,15 @@ body {
   text-align: center;
   color: #0f2137;
 }
-ul li,
-button {
-  font-family: "DM Sans";
+li,
+button,a {
+  font-family: "DM Sans", sans-serif;
 }
-a,
-button,
-img {
+button{
   cursor: pointer;
+}
+img{
+  cursor: auto;
 }
 .header {
   margin-bottom: 100px;
@@ -477,6 +478,12 @@ img {
   background-color: transparent;
   border: none;
 }
+#tab__title-1,
+#tab__title-2,
+#tab__subtitle-1,
+#tab__subtitle-2 {
+  display: none;
+}
 .pricing__boxes {
   display: flex;
   align-items: center;
@@ -595,35 +602,29 @@ img {
   border: 2px solid transparent;
   transition: all 0.3s;
 }
-.faq__descr {
-  margin-bottom: 45px;
-}
-.faq__inner {
-  margin: 0 10px;
-}
 .faq {
   margin-bottom: 120px;
 }
 .faq__title {
-  margin-bottom: 5px;
+  margin-bottom: 0px;
 }
-.faq__descr {
-  margin-bottom: 60px;
-}
-.faq__accordion {
+.faq__content {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
-  align-items: flex-start;
-  max-width: 70%;
-  margin: auto;
+  gap: 10px;
 }
-.faq__acc-item {
-  border-bottom: 1px solid #e5ecf4;
+.accordion-item {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #e5ecf4;
+  width: 60%;
 }
-.accordion {
+.accordion-item-btn {
   position: relative;
   background-color: transparent;
-  padding: 18px;
+  padding: 14px 18px;
   width: 100%;
   border: none;
   font-weight: 500;
@@ -631,36 +632,33 @@ img {
   line-height: 30px;
   letter-spacing: -0.5px;
   color: #0f2137;
-}
-.accordion {
   display: flex;
   align-items: center;
-  gap: 15px;
+  justify-content: flex-start;
+  gap: 12px;
 }
-.panel {
-  position: relative;
-  display: none;
-  overflow: hidden;
-}
-.panel p {
-  font-weight: 400;
-  color: #343d48;
-  margin-bottom: 5px;
-}
-.accordion::before {
-  content: "\002B";
-  width: 23px;
-  height: 23px;
-  font-size: 25px;
+.accordion-item-btn::before {
+  content: "+";
+  color: #fff;
+  background-color: #3fdbb1;
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #25cb9e;
-  color: #fff;
-  border-radius: 50px;
+  font-size: 25px;
 }
-.accordion.active::before {
+.accordion-item-btn.active::before {
   content: "-";
+}
+.panel {
+  height: 0px;
+  overflow: hidden;
+  transition: height 0.3s linear;
+  color: #343d48;
+  opacity: 0.7;
+  padding: 0 5px 5px 20px;
 }
 .footer {
   max-width: 1920px;
@@ -675,6 +673,8 @@ img {
   align-items: flex-start;
   justify-content: space-between;
   border-bottom: 1px solid #d9e0e7;
+  padding-bottom: 60px;
+  margin-bottom: 15px;
 }
 .footer__list {
   display: flex;
